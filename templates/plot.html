@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <title>forecasting</title>
+        <link rel="stylesheet" href={{ url_for( "static" , filename="index2.css") }} >
+    </head>
+    <body>
+        <h2>Forecasted Weather <small>(Plots)</small></h2>
+        {% if data[0] == "0": %}
+            <section>
+                <div id="temperature-before" class="form-box plot-container">
+                    <h3>Forecasted Result</h3>
+                    <div class="inputbox plot-canvas">
+                        <img src={{ url_for( "static" , filename="forecasted_temp_plot.png") }} alt="Temperature Graph">
+                    </div>
+                </div>
+
+                <div id="temperature-after" class="form-box plot-container">
+                    <h3>Compared Result</h3>
+                    <div class="inputbox plot-canvas">
+                        <img src={{ url_for( "static" , filename="compared_temp_plot.png") }} alt="Temperature Graph">
+                    </div>
+                </div>
+            </section>
+            <div class="button-container">
+                <button id='temp-comp-btn'>Compare</button>
+            </div>
+        {% endif %}
+
+        {% if data[0] == "1": %}
+            <section>
+                <div id="rain-before" class="form-box plot-container">
+                    <h3>Forecasted Result</h3>
+                    <div class="inputbox plot-canvas">
+                        <img src={{ url_for( "static" , filename="forecasted_rainfall_plot.png") }} alt="Rainfall Graph">
+                    </div>
+                </div>
+
+                <div id="rain-after" class="form-box plot-container">
+                    <h3>Compared Result</h3>
+                    <div class="inputbox plot-canvas">
+                        <img src={{ url_for( "static" , filename="compared_rainfall_plot.png") }} alt="Rainfall Graph">
+                    </div>
+                </div>
+            </section>
+            <div class="button-container">
+                <button id='rain-comp-btn'>Compare</button>
+            </div>
+        {% endif %}
+
+        {% if data[0] == "2": %}
+            <section>
+                <div id="temperature-before" class="form-box plot-container">
+                    <h3>Compared Temperature</h3>
+                    <div class="inputbox plot-canvas">
+                        <img src={{ url_for( "static" , filename="compared_temp_plot.png") }} alt="Temperature Graph">
+                    </div>
+                </div>
+
+                <div id="temperature-after" class="form-box plot-container">
+                    <h3>Compared Rainfall</h3>
+                    <div class="inputbox plot-canvas">
+                        <img src={{ url_for( "static" , filename="compared_rainfall_plot.png") }} alt="Temperature Graph">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div id="rain-before" class="form-box plot-container">
+                    <h3>Compared Maximum Temperature</h3>
+                    <div class="inputbox plot-canvas">
+                        <img src={{ url_for( "static" , filename="compared_max_temp_plot.png") }} alt="Rainfall Graph">
+                    </div>
+                </div>
+
+                <div id="rain-after" class="form-box plot-container">
+                    <h3>Compared Minimum Temperature</h3>
+                    <div class="inputbox plot-canvas">
+                        <img src={{ url_for( "static" , filename="compared_min_temp_plot.png") }} alt="Rainfall Graph">
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+
+        <script src={{ url_for( "static" , filename="jquery-3.6.0.min.js") }}></script>
+        {% if data[0] != "2": %}
+        <script>
+            var isTempAfterShowing = false;
+            var isRainAfterShowing = false;
+            $(document).ready(() => {
+                $('#temperature-after').hide();
+                isTempAfterShowing = false;
+                $('#rain-after').hide();
+                isRainAfterShowing = false;
+            })
+
+            $('#temp-comp-btn').on('click', () => {
+                if (isTempAfterShowing) {
+                    $('#temperature-after').hide();
+                    isTempAfterShowing = false;
+                } else{
+                    $('#temperature-after').show();
+                    isTempAfterShowing = true;
+                }
+            })
+
+            $('#rain-comp-btn').on('click', () => {
+                if (isRainAfterShowing) {
+                    $('#rain-after').hide();
+                    isRainAfterShowing = false;
+                } else{
+                    $('#rain-after').show();
+                    isRainAfterShowing = true;
+                }
+            })
+
+        </script>
+    {% endif %}
+    </body>
+</html>

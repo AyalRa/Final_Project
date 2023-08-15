@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href={{ url_for( "static" , filename="bootstrap.min.css") }} >
+  <link rel="stylesheet" href={{ url_for( "static" , filename="index.css") }} >
+  <title>Weather Forecast</title>
+</head>
+
+<body>
+    {% if message %}
+        <p>Note: {{ message }}</p>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

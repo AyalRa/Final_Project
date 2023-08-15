@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}Raw Form Example{% endblock %}
+
+{% block content %}
+<section>
+	<div class="color-overlay"></div>
+    <div class="form-box">
+		<form method="POST" action="">
+			<h2>Weather Forecasting</h2>
+			<div class="form-group input-unit mb-3">
+				<label class="text-white" style="width: 19%" for="last">Forecast from :</label>
+				<input class="form-control mb-0" id="forecast_from" name="DATE" type="date" value="2023-05-06" />
+			</div>
+			<label class="text-white mb-4">Past Three Days : </label>
+			<div class="input-container">
+				<span class="input-label">Day  1</span>
+				<div class="row">
+					<div class="col-6 input-unit">
+						<label class="text-white me-1" for="temperature1">Temperature(°C)</label>
+						<input class="form-control m-0" id="temperature1" name="Temperature1" type="text" value="18.87"/>   
+					</div>
+					<div class="col-6 input-unit">
+						<label class="text-white me-1" for="rainfall1">Rainfall(mm)</label>
+						<input class="form-control m-0" id="rainfall1" name="Rainfall1" type="text" value="0.00"/>
+					</div>
+				</div>
+			</div>	
+			
+			<div class="input-container">
+				<span class="input-label">Day  2</span>
+				<div class="row">
+					<div class="col-6 input-unit">
+						<label class="text-white me-1" for="temperature2">Temperature(°C)</label>
+						<input class="form-control m-0" id="temperature2" name="Temperature2" type="text" value="17.97"/>   
+					</div>
+					<div class="col-6 input-unit">
+						<label class="text-white me-1" for="rainfall2">Rainfall(mm)</label>
+						<input class="form-control m-0" id="rainfall2" name="Rainfall2" type="text" value="1.30"/>
+					</div>
+				</div>
+			</div>	
+			
+			<div class="input-container">
+				<span class="input-label">Day  3</span>
+				<div class="row">
+					<div class="col-6 input-unit">
+						<label class="text-white me-1" for="temperature3">Temperature(°C)</label>
+						<input class="form-control m-0" id="temperature3" name="Temperature3" type="text" value="18.00"/>   
+					</div>
+					<div class="col-6 input-unit">
+						<label class="text-white me-1" for="rainfall3">Rainfall(mm)</label>
+						<input class="form-control m-0" id="rainfall3" name="Rainfall3" type="text" value="0.00"/>
+					</div>
+				</div>
+			</div>	
+			
+			<div class="input-unit">
+				<label class="text-white w-50" for="rainfall2">Number of Days to Forecast</label>
+				<input class="form-control" id="last" name="number" type="text" value="7">
+			</div>
+			
+			<div class="Plots text-white">
+				<label for="last" >Plots : </label>
+				<input type="radio" id ='show' onclick="show2();" name = "plot" value="yes"/> Graphs 
+				<input type="radio" id ='hide' checked onclick="show1();" name = "plot" value="no"/> Table 
+				</br>
+			</div>
+			<div class="inputbox text-white" id="choices">
+				<input type="radio" id="temperature_radio" checked name="Precepitation" value="0"/>
+				<label for="last"> Temperature</label>
+
+				<input type="radio" id="rainfall_radio" name="Precepitation" value="1"/>
+				<label for="last"> Rainfall</label>
+
+				<input type="radio" id="both_radio" name="Precepitation" value="2"/>
+				<label for="last"> Both</label>
+			</div>
+			<button type="submit" class ='submit-button'>FORECAST</button>	
+		</form>
+    </div>
+</section>
+<script src={{ url_for( "static" , filename="index.js") }}></script>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+{% endblock %}

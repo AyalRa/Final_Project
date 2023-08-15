@@ -1,0 +1,188 @@
+body {
+    font-family: 'lato', sans-serif;
+    background: url('background.jpg') fixed;
+	display: grid;
+	place-content: center;
+  }
+
+html,
+body,
+.intro {
+    height: 100%;
+}
+
+table{
+    font-size: 17px;
+}
+
+table td,
+table th {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.mask-custom {
+    background: rgba(24, 24, 16, .2);
+    border-radius: 2em;
+    backdrop-filter: blur(25px);
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    background-clip: padding-box;
+    box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+h2 {
+    font-size: 26px;
+    margin: 20px 0;
+    text-align: center;
+    color: #fff;
+    
+}
+
+small {
+    font-size: 0.5em;
+}
+
+li {
+    border-radius: 3px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.table-header {
+    background-color: #95A5A6;
+    font-size: 8px;
+    text-transform: uppercase;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    font-size: 0.7em;
+    color: #fff;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+}
+
+.table-row {
+    background-color: #ffffff;
+    background: transparent;
+
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 2px solid rgba(255,255,255,0.5);
+    color: #fff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+}
+
+section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    gap: 50px;
+}
+
+.form-box{
+    position: relative;
+    max-width: 768px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2{
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h3{
+    color: white;
+    margin: 10px;
+    align-self: flex-start;
+}
+
+.Plots {
+    color: #fff;
+}
+
+img {
+    border-radius: 20px;
+    width: 100%;
+    min-height: 436px;
+}
+
+@media all and (max-width: 767px) {
+    .table-header {
+      display: none;
+    }
+    .table-row{
+      
+    }
+    li {
+      display: block;
+    }
+    .col {
+      
+      flex-basis: 100%;
+      
+    }
+    .col {
+      display: flex;
+      padding: 10px 0;
+      &:before {
+        color: #6C7A89;
+        padding-right: 10px;
+        content: attr(data-label);
+        flex-basis: 50%;
+        text-align: right;
+      }
+    }
+ }
+
+.plot-container{
+	isplay: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-bottom: 20px;
+
+}
+
+.plot-canvas{
+	background: #04151ac4;
+	box-shadow: 2px 2px 5px 5px #08181c;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    width: 200px;
+    height: 40px;
+    border-radius: 40px;
+    background: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+	background: #174040;
+    box-shadow: 1px 1px 2px 2px #073434;
+    color: white;
+    border-radius: 6px;
+    margin-top: 10px;
+}
